@@ -1,0 +1,17 @@
+npx playwright test tests/example.spec.ts //run especific test
+
+npx playwright show-report //show report of the last test executed--
+
+npx playwright test --trace on
+
+npx playwright  test --headed //open the browser
+npx playwright  test --headed --browser=firefox or all //open especific browser
+
+npx playwright test --grep @myTag // launch only the test with the tag and the rest of the tests will be ignored
+npx playwright test --grep-invert @myTag // ignore the tests maeked with the tag
+
+npx playwright test --config=playwright.config.ts --project=firefox // run all the tests using the especific browser
+
+npx playwright test --reporter=list // show in console a report of the tests executed
+npx playwright test --reporter=dot // show in console a green or red dot for the report of the tests executed
+npx playwright test --reporter=html // generate a folder with the reports
