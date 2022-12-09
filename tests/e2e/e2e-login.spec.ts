@@ -24,15 +24,16 @@ test.describe.parallel('Login-logout flow', ()=> {
 
     test('Login/Logout-Negative scenario',async ({ page }) => {
         await homePage.clickOnSignIn();
-        await loginPage.login(username,password);
+        await loginPage.login('username','password');
+        await page.goto('http://zero.webappsecurity.com/index.html')
 
-        const welcomeMessage = page.locator('.mb5');
-        await expect(welcomeMessage).toHaveText('Bienvenido paroliado!');
+        const userIcon = page.locator('text=username');
+        await expect(userIcon).toBeVisible();
 
-        await page.click('.btn--username');
-        await page.click('.logout');
+        await page.click('.icon-user');
+        await page.click('#logout_link');
         
-        const loginBtn = await page.locator('text=Ingresa >> nth=1');
+        const loginBtn = await page.locator('#signin_button');
         await expect(loginBtn).toBeVisible();
     })
 });

@@ -15,3 +15,6 @@ npx playwright test --config=playwright.config.ts --project=firefox // run all t
 npx playwright test --reporter=list // show in console a report of the tests executed
 npx playwright test --reporter=dot // show in console a green or red dot for the report of the tests executed
 npx playwright test --reporter=html // generate a folder with the reports
+
+// jenkisn
+java -jar jenkins.war --httpPort=8080 --enable-future-java

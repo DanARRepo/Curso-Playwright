@@ -7,12 +7,12 @@ export class HomePage {
 
     constructor ( page: Page) {
         this.page = page;
-        this.signInButton = page.locator('header >> text=Ingresa');
+        this.signInButton = page.locator('#signin_button');
         this.searchBox = page.locator('#searchTerm')
     }
 
     async visit() {
-        await this.page.goto('https://www.betsson.co/');
+        await this.page.goto('http://zero.webappsecurity.com/index.html');
     }
 
     async clickOnSignIn() {

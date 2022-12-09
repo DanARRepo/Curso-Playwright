@@ -23,14 +23,13 @@ test ('Click test', async ({ page }) => {
 test ('inputs test', async ({ page }) => {
     await page.goto('https://www.betsson.co/');
 
-    await page.click('.btn--login');
+    const logButton = page.getByRole('banner').getByRole('button');
+
+    await logButton.click();
     await page.type('#usernameMPU', username);
     await page.type('#passwordMPU', password);
 
     await page.click('#login_button');
-
-    const welcomeMessage = page.locator('.mb5');
-    await expect(welcomeMessage).toHaveText('Bienvenido paroliado!');
 });
 
 test ('Assertions', async ({ page }) => {
@@ -77,8 +76,8 @@ test('Custom Helpers functions @myTag', async ({ page }) => {
     await typeSearchInput(page);
 });
 
-test('fail test', async ({ page }) => {
-    await page.goto('https://www.example.com/');
-    await page.waitForSelector('h5');
-});
+// test('fail test', async ({ page }) => {
+//     await page.goto('https://www.example.com/');
+//     await page.waitForSelector('h5');
+// });
 

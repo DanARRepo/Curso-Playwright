@@ -17,12 +17,11 @@ export class LoginPage extends AbstractPage {
     // Constructor - Init selectors
     constructor( page: Page) {
         super(page);
-        this.userInput = page.locator('#usernameMPU');
-        this.passwordInput = page.locator('#passwordMPU');
-        this.submitButtton = page.locator('#login_button');
-        this.errorMessage = page.locator('text=El usuario o la contraseña no son correctos');
+        this.userInput = page.locator('#user_login');
+        this.passwordInput = page.locator('#user_password');
+        this.submitButtton = page.locator('.btn-primary >> text=Sign in');
+        this.errorMessage = page.locator('.alert-error');
         this.loginForm = page.locator('#login_form');
-        this.errorZeroMessage = page.locator('.alert-error');
     }
 
     // Define functions
@@ -41,6 +40,6 @@ export class LoginPage extends AbstractPage {
     }
 
     async snapshotErrorMessage() {
-        await expect(this.errorZeroMessage.screenshot()).toMatchSnapshot('login-error.png');
+        await expect(this.errorMessage.screenshot()).toMatchSnapshot('login-error.png');
     }
 }
